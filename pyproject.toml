@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "pymail"
+version = "0.1.0"
+description = ""
+authors = ["Dolf Andringa <dolfandringa@gmail.com>"]
+readme = "README.md"
+packages = [{include = "pymail", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+pyright = "^1.1.298"
+pylint = "^2.17.0"
+pytest-mock = "^3.10.0"
+mock = "^5.0.1"
+pytest-pylint = "^0.19.0"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+pytest = "^7.2.2"
+pylint-pydantic = "^0.1.7"
+pytest-asyncio = "^0.20.3"
+pytest-cov = "^4.0.0"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+    "--pylint",
+    "--cov=pymail",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.pylint.format]
+max-line-length = "88"
+
+[tool.pylint.main]
+extension-pkg-allow-list=["pydantic"]
+load-plugins=["pylint_pydantic"]
+
+[tool.pylint.exceptions]
+overgeneral-exceptions=["builtins.BaseException", "builtins.Exception"]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
