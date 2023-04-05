@@ -1,4 +1,4 @@
-name: Pylint
+name: Testalot
 
 on: [push]
 
@@ -25,3 +25,6 @@ jobs:
       - name: Analysing the code with pylint
         run: |
           poetry run pylint $(git ls-files '*.py')
+      - name: Running unittests
+        run: |
+          poetry run pytest
