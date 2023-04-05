@@ -29,6 +29,7 @@ addopts = [
     "--import-mode=importlib",
     "--pylint",
     "--cov=pymail",
+    "--cov-fail-under=95",
 ]
 
 [tool.isort]
